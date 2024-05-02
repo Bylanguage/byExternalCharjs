@@ -1,0 +1,118 @@
+﻿ku chartjsDemoTest
+{
+    system biao identity.skill "身份技能表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string[] parameters "参数"
+    , string returnType "返回类型"
+    , string body "技能体")
+    {
+        { ClientStartup, main "客户端入口点", { client }, { static }, { string[] args "启动参数"}, void, {
+            
+        } }
+        { ServerStartup, main "服务端入口点", { server }, { static }, { string[] args "启动参数" }, void, {
+            
+        } }
+        { Home, main "网页主技能，重写此技能以实现自定义的网页初始化逻辑", { web }, {  }, { string queryArgs "网页当前参数字符串，即url中?符后面的内容" }, void, {
+            
+            //混合图示例，把多个图表绘制在一起
+            chartjs.fullMix(
+            "myChart",//myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上，这个要修改成你的
+            new string[]{enum.chartType.bar.toString(),enum.chartType.line.toString(), enum.chartType.radar.toString()}, //enum.chartType图表类型
+            new string[]{"混合图柱子","混合图折线","混合图雷达图"}, //当前图的说明
+            new string[]{"Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"}, //每一小部分的说明，本项要与f_data长度保持一致
+            new float[][]{{28, 48, 40, 19, 96, 27, 100},{78, 46, 20, 59, 66, 47, 80},{65, 59, 90, 81, 56, 55, 40}}, //要展示的数据 [] 一维数组
+            new string[]{"rgba(255, 99, 132, 0.2)","rgba(55, 99, 232, 0.2)","rgba(54, 162, 235, 0.2)"}, //背景色 ，本项要与f_data长度保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(55, 255, 30)"},  //边框颜色，要跟记录数量保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(99, 255, 132)","rgb(54, 162, 235)"}  //点背景色，要跟记录数量保持一致
+            );
+            
+           //调用饼图示例
+            chartjs.fullPie(
+            "myChart2", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个饼图",  //当前图的说明
+            new string[]{"一月份", "二月份", "三月份","四月份", "五月份", "六月份", "七月份"}, //每一根柱子的说明，本项要与f_data长度保持一致
+            new float[]{65, 59, 80, 81, 56, 55, 40}, //要展示的数据 [] 一维数组
+            new string[]{"rgb(255,99,132)","rgb(255,159,64)","rgb(255,205,86)","rgb(75,192,192)","rgb(54,162,235)","rgb(153,102,255)","rgb(201,203,207)"} //背景色，本项要与f_data长度保持一致
+            ); 
+            
+            //调用环形图示例
+            chartjs.fullDoughnut(
+            "myChart3", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个环形图",  //当前图的说明
+            new string[]{"一月份", "二月份", "三月份","四月份", "五月份", "六月份", "七月份"}, //每一根柱子的说明，本项要与f_data长度保持一致
+            new float[]{65, 59, 80, 81, 56, 55, 40}, //要展示的数据 [] 一维数组
+            new string[]{"rgb(255,99,132)","rgb(255,159,64)","rgb(255,205,86)","rgb(75,192,192)","rgb(54,162,235)","rgb(153,102,255)","rgb(201,203,207)"} //背景色，本项要与f_data长度保持一致
+            ); 
+            
+            //调用柱形图示例
+            chartjs.fullBar(
+            "myChart4", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个柱形图",  //当前图的说明
+            new string[]{"一月份", "二月份", "三月份","四月份", "五月份", "六月份", "七月份"}, //每一根柱子的说明，本项要与f_data长度保持一致
+            new float[]{65, 59, 80, 81, 56, 55, 40}, //要展示的数据 [] 一维数组
+            new string[]{"rgba(255,99,132,0.2)","rgba(255,159,64,0.2)","rgba(255,205,86,0.2)","rgba(75,192,192,0.2)","rgba(54,162,235,0.2)","rgba(153,102,255,0.2)","rgba(201,203,207,0.2)"}, //背景色，本项要与f_data长度保持一致
+            new string[]{"rgb(255,99,132)","rgb(255,159,64)","rgb(255,205,86)","rgb(75,192,192)","rgb(54,162,235)","rgb(153,102,255)","rgb(201,203,207)"} //边框颜色，本项要与f_data长度保持一致
+            ); 
+            
+            //调用折线图示例
+            chartjs.fullLine(
+            "myChart5", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个折线图",  //当前图的说明
+            new string[]{"一月份", "二月份", "三月份","四月份", "五月份", "六月份", "七月份"}, //每一根柱子的说明，本项要与f_data长度保持一致
+            new float[]{65, 59, 80, 81, 56, 55, 40}, //要展示的数据 [] 一维数组
+            new string[]{"rgb(255,99,132)","rgb(255,159,64)","rgb(255,205,86)","rgb(75,192,192)","rgb(54,162,235)","rgb(153,102,255)","rgb(201,203,207)"} //背景色，本项要与f_data长度保持一致
+            );
+            
+            //调用极地图示例
+            chartjs.fullPolarArea(
+            "myChart6", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个极地图",  //当前图的说明
+            new string[]{"一月份", "二月份", "三月份","四月份", "五月份", "六月份", "七月份"}, //每一根柱子的说明，本项要与f_data长度保持一致
+            new float[]{65, 59, 80, 81, 56, 55, 40}, //要展示的数据 [] 一维数组
+            new string[]{"rgb(255,99,132)","rgb(255,159,64)","rgb(255,205,86)","rgb(75,192,192)","rgb(54,162,235)","rgb(153,102,255)","rgb(201,203,207)"} //背景色，本项要与f_data长度保持一致
+            );
+            
+            //调用雷达图示例
+            chartjs.fullRadar(
+            "myChart7", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上，这个要修改成你的
+            new string[]{"第一雷达图","第二雷达图","第三雷达图"}, //当前图的说明
+            new string[]{"Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"}, //每一小部分的说明，本项要与f_data长度保持一致
+            new float[][]{{28, 48, 40, 19, 96, 27, 100},{78, 46, 20, 59, 66, 47, 80},{65, 59, 90, 81, 56, 55, 40}}, //要展示的数据 [] 一维数组
+            new string[]{"rgba(255, 99, 132, 0.2)","rgba(55, 99, 232, 0.2)","rgba(54, 162, 235, 0.2)"}, //背景色 ，本项要与f_data长度保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(55, 255, 30)"}, //边框颜色，要跟记录数量保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(99, 255, 132)","rgb(54, 162, 235)"} //点背景色，要跟记录数量保持一致
+            );
+            
+            //混合图示例，把多个图表绘制在一起
+            chartjs.fullMix(
+            "myChart8",//myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上，这个要修改成你的
+            new string[]{enum.chartType.bar.toString(),enum.chartType.line.toString(), enum.chartType.radar.toString()}, //enum.chartType图表类型
+            new string[]{"混合图柱子","混合图折线","混合图雷达图"}, //当前图的说明
+            new string[]{"Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"}, //每一小部分的说明，本项要与f_data长度保持一致
+            new float[][]{{28, 48, 40, 19, 96, 27, 100},{78, 46, 20, 59, 66, 47, 80},{65, 59, 90, 81, 56, 55, 40}}, //要展示的数据 [] 一维数组
+            new string[]{"rgba(255, 99, 132, 0.2)","rgba(55, 99, 232, 0.2)","rgba(54, 162, 235, 0.2)"}, //背景色 ，本项要与f_data长度保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(55, 255, 30)"}, //边框颜色，要跟记录数量保持一致
+            new string[]{"rgb(255, 99, 132)","rgb(99, 255, 132)","rgb(54, 162, 235)"} //点背景色，要跟记录数量保持一致
+            );
+            
+            //气泡图示例
+            chartjs.fullBubble(
+            "myChart9",//myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上，这个要修改成你的
+            "气泡图示例", //当前图的说明
+            new float[][]{{20,30,15},{30,20,20},{40,10,10}}, //要展示的数据 [] 一维数组
+            "rgb(255, 99, 132)" //跟记录数量保持一致
+            );
+ 
+            //散点图示例 
+            chartjs.fullScatter(
+            "myChart10", //myChart 为 html中的canvasID名称，即要绘在哪一个canvas标签上
+            "我的第一个散点图示例",  //当前图的说明
+            new float[][]{{20,15},{30,20},{40,10}}, //要展示的数据 [] 一维数组
+            "rgb(255,99,132)" //背景色，本项要与f_data长度保持一致
+            );
+        } }
+    }
+}

@@ -1,0 +1,41 @@
+﻿ku byExternalChartjs
+{
+    system biao object.method "面向对象方法表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string[] parameters "参数"
+    , string returnType "返回类型"
+    , string body "方法体")
+    {
+        { RGB, RGB "构造方法", , {  }, { int f_r "red",int f_g "green",int f_b "blue" }, , { 
+            this.r = f_r;
+            this.g = f_g; 
+            this.b = f_b;
+        } } 
+        { RGB, toJsFormat "格式，如：'rgb(255,99,132)' ", {  }, {  }, {  }, string, { 
+            return "'rgb("+this.r+","+this.g+","+this.b+")'";
+         } }
+        { RGBA, RGBA "构造方法", , {  }, { int f_r "red",int f_g "green",int f_b "blue",decimal f_a "Alpha" }, , { 
+            base(f_r, f_g, f_b); //基构造方法请写在第一行
+            this.a = f_a;
+        } }
+        { RGBA, RGBA "构造方法", , {  }, { int[] f_rgb "RGB",decimal f_a "Alpha" }, , { 
+            base( f_rgb[0],f_rgb[1], f_rgb[2] ); //基构造方法请写在第一行
+            this.a = f_a;
+        } }
+        { RGBA, toJsFormat "格式，如：'rgba(255,99,132,0.2)' ", {  }, {  }, {  }, string, { 
+            return "'rgba("+this.r+","+this.g+","+this.b+","+this.a+")'";
+        } }
+        { chartjs, fullBar "柱形图", {  }, { static }, {string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",string[] f_labels"每一根柱子的说明，本项要与f_data长度保持一致",float[] f_data"要展示的数据,一维数组",string[] f_backgroundColor"背景色，本项要与f_data长度保持一致",string[] f_borderColor"边框颜色，本项要与f_data长度保持一致,格式：['rgb(255,99,132)','rgb(54,162,235)',...']" }, void,  }
+        { chartjs, fullBubble"气泡图", {  }, { static }, { string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",float[][] f_data"要展示的数据，两维数组，格式：[[x,y,r],[x,y,r]...]" ,string f_backgroundColor "背景颜色，格式：'rgb(255, 99, 132)'"}, void,  }
+        { chartjs, fullDoughnut "环形图", {  }, { static }, {string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[] f_data"要展示的数据，一维数组",string[] f_backgroundColor"背景色，本项要与f_data长度保持一致,格式：['rgb(255,99,132)','rgb(54,162,235)',...']"}, void,  }
+        { chartjs, fullPie "饼图", {  }, { static }, {string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[] f_data"要展示的数据，一维数组",string[] f_backgroundColor"背景色，本项要与f_data长度保持一致,格式：['rgb(255,99,132)','rgb(54,162,235)',...']"}, void,  }
+        { chartjs, fullLine "折线图", {  }, { static }, {string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[] f_data"要展示的数据，一维数组",string[] f_backgroundColor"背景色,格式：'rgb(255,99,132)'"}, void,  }
+        { chartjs, fullPolarArea "极地图", {  }, { static }, {string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[] f_data"要展示的数据，一维数组",string[] f_backgroundColor"背景色，本项要与f_data长度保持一致,格式：['rgb(255,99,132)','rgb(54,162,235)',...']"}, void,  }
+        { chartjs, fullScatter"散点图", {  }, { static }, { string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string f_label"当前图的说明",float[][] f_data"要展示的数据，两维数组，格式：[[x,y],[x,y]...]" ,string f_backgroundColor "背景颜色，格式：'rgb(255, 99, 132)'"}, void,  }
+        { chartjs, fullRadar"雷达图", {  }, { static }, { string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string[] f_label"当前图的说明/记录",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[][] f_data"要展示的数据，两维数组，格式：[[1,2,3],[3,4,5]...]" ,string[] f_backgroundColor "背景颜色",string[]  f_borderColor "跟记录数量保持一致",string[]  f_pointBackgroundColor  "跟记录数量保持一致"}, void,  }
+        { chartjs, fullMix"混合图", {  }, { static}, { string f_canvasID"html中的canvasID名称，即要绘在哪一个canvas标签上",string[] f_chartType"enum.chartType图表类型",string[] f_label"当前图的说明/记录",string[] f_labels"每一部分的说明，本项要与f_data长度保持一致",float[][] f_data"要展示的数据，两维数组，格式：[[1,2,3],[3,4,5]...]" ,string[] f_backgroundColor "背景颜色",string[]  f_borderColor "跟记录数量保持一致",string[]  f_pointBackgroundColor  "跟记录数量保持一致"}, void,  }
+    }
+}

@@ -1,0 +1,25 @@
+﻿ku byExternalChartjs
+{
+    system biao object.property "面向对象属性表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string type "类型"
+    , OBJECT value "值")
+    {
+        { RGB, r "red", {  }, {  }, int,  }
+        { RGB, g "green", {  }, {  }, int,  }
+        { RGB, b "blue", {  }, {  }, int,  }
+        { RGBA, a "Alpha", {  }, {  }, decimal,  }
+        //{ config, type "对应charjs中的config中的type", {  }, {  }, byExternalCharjs.enum.chartType,  }
+        //{ config, data "对应charjs中的config中的data", {  }, {  }, byExternalCharjs.enum.chartType,  }
+        //{ dataBar, labels, {  }, {  }, string[],  }
+        //{ dataBar, Data "Data要与 labels数目保持一致", {  }, {  }, datasetsMember[],  }
+        //{ datasetsMember, label "说明", {  }, {  }, string,  }
+        //{ datasetsMember, data "一维数据", {  }, {  }, decimal[],  }
+        //{ datasetsMember, backgroundColor "设置每个柱形图的背景颜色,数量要与data保持一致", {  }, {  }, RGBA[],  }
+        //{ datasetsMember, borderColor "柱形图边框线条颜色,数量要与data保持一致", {  }, {  }, RGB[],  }
+        //{ datasetsMember, borderWidth "设置线条宽度", {  }, {  }, int, 1 }
+    }
+}

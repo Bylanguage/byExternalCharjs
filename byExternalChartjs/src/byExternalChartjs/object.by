@@ -1,0 +1,19 @@
+﻿ku byExternalChartjs
+{
+    system biao object "面向对象类型表" (
+    string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string kind "类型类别"
+    , string inheritance "继承项"
+    , string[] implementations "实现项")
+    {
+        //{ config "对应charjs中的config项", { web,server }, {  }, class, , {  } } 
+        //{ dataBar "柱形图数据项", { web,server }, {  }, class, , {  } } 
+        { color"颜色", { client, server, web }, {  }, class, , {  } }
+        { RGB "color", { client, server, web }, {  }, class, , {  } }
+        { RGBA "color+Alpha", { client, server, web }, {  }, class,RGB , {  } } 
+       // { datasetsMember "datasets成员", { web,server }, {  }, class, , {  } } 
+        { chartjs "webjs库 调用原生charjs库在页面上绘制", { web }, { external }, class, , {  } }
+    }
+}
